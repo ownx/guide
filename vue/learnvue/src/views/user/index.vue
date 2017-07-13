@@ -42,6 +42,16 @@
 		},
 		watch: {
 			$route(){
+				this.getData()
+			}
+		},
+		created() {
+			// 渲染这个组件会调用一次这个生命周期函数
+			// 复用这个组件，这个函数就不会再次调用了，
+			this.getData()
+		},
+		methods: {
+			getData() {
 				let id = this.$route.params.userId;
 				console.log(this.$route)
 				console.log(id)
@@ -53,21 +63,6 @@
 				}else{
 					this.userInfo = {}
 				}
-			}
-		},
-		created() {
-			// 渲染这个组件会调用一次这个生命周期函数
-			// 复用这个组件，这个函数就不会再次调用了，
-			let id = this.$route.params.userId;
-			console.log(this.$route)
-			console.log(id)
-
-			if(id){
-				this.userInfo = this.userList.filter((item) => {
-					return item.id == id
-				})[0]
-			}else{
-				this.userInfo = {}
 			}
 		}
 	}
