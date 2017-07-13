@@ -1,12 +1,24 @@
 <template>
 	<div>
 		<!-- user 页面 -->
-		<router-link :to="'/user/' + item.id" key="index" v-for="item,index in userList"> {{item.userName}}</router-link>
+		<!--<router-link :to="'/user/' + item.id" key="index" v-for="item,index in userList"> {{item.userName}}</router-link>-->
+		      <router-link style="padding: 0px 20px;" :to="{path:'/user/'+item.tip+'/'+item.id,query:{info:'follow'}}" key="index" v-for="item,index in userList">{{item.userName}}</router-link>
+
 		<div class="user-info" v-if="userInfo.userName">
 			<p>姓名：{{userInfo.userName}} </p>
 			<p>性别: {{userInfo.sex}}</p>
 			<p>爱好: {{userInfo.hobby}}</p>
 		</div>
+		 <hr>
+    <div v-if="userInfo.userName" class="info-list" style="font-size: 20px;">
+      <!--<router-link exact to="?info=follow">他的关注</router-link>
+      <router-link exact to="?info=share">他的分享</router-link>-->
+      <router-link exact :to="{path:'',query:{info:'follow'}}">他的关注</router-link>
+      <router-link exact :to="{path:'',query:{info:'share'}}">他的分享</router-link>
+      <div>
+        {{$route.query}}
+      </div>
+    </div>
 	</div>
 </template>
 
