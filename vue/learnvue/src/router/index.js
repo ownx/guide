@@ -40,7 +40,7 @@ let router = new VueRouter({
       }
     },
     {
-      path: '/user/:userId?',
+      path: '/user/:tip?/:userId?',  // /user/vip/1  /user/common/2  /user
       component: User
     },
     {
