@@ -6,6 +6,7 @@
 </template>
 
 <script>
+var jsonp = require('jsonp');
   export default {
     name: 'blog',
     data () {
@@ -15,6 +16,7 @@
     },
     created () {
       this.getGoods()
+      this.getJsonp()
     },
     methods: {
       getGoods () {
@@ -25,6 +27,20 @@
           .catch((error) => {
             console.log(error)
           })
+      },
+      getJsonp (){
+        jsonp('https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su?wd=strak', 
+        {
+          param:'cb',
+          timeout:0,
+          prefix:'cb'
+        }, function (err, data) {
+            if (err) {
+              console.error(err.message);
+            } else {
+              console.log(data);
+            }
+          });
       }
     }
   }
