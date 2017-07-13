@@ -2,6 +2,11 @@
 	<div>
 		<!-- user 页面 -->
 		<router-link :to="'/user/' + item.id" key="index" v-for="item,index in userList"> {{item.userName}}</router-link>
+		<div class="user-info" v-if="userInfo.userName">
+			<p>姓名：{{userInfo.userName}} </p>
+			<p>性别: {{userInfo.sex}}</p>
+			<p>爱好: {{userInfo.hobby}}</p>
+		</div>
 	</div>
 </template>
 
@@ -40,9 +45,15 @@
 			// 复用这个组件，这个函数就不会再次调用了，
 			let id = this.$route.params.userId;
 			console.log(this.$route)
-			this.userInfo = this.userList.filter((item) => {
-				return item.id == id
-			})
+			console.log(id)
+
+			if(id){
+				this.userInfo = this.userList.filter((item) => {
+					return item.id == id
+				})[0]
+			}else{
+				this.userInfo = {}
+			}
 		}
 	}
 </script>
