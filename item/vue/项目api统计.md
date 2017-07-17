@@ -33,6 +33,9 @@ lc.shudong.wang
 张福源 https://www.juhe.cn/docs/api/id/50 图书商城 http://www.chuangbie.com/
 
 吴培锋https://www.showapi.com/api/lookPoint/1373  UC头条API新闻  https://news.uc.cn/
+张小明 http://www.haoservice.com/docs/30/detail 菜谱大全 http://www.haodou.com/recipe/all/
+张小明 https://www.juhe.cn/docs/api/id/132 书旗小说 http://t.shuqi.com/route.php?pagename=
+陈亮 lc.shudong.wang 电商网站 http://www.iliangcang.com/ 
 
 
 北京
